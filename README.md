@@ -166,3 +166,17 @@ Everyone hits at least one of these. None of them mean you've broken anything.
 
 Still stuck? Ask. Getting the tools installed is genuinely the least interesting part
 of programming, and nobody gets points for suffering through it alone.
+
+---
+
+## Copyright
+
+**PetPal** © 2026 Jennifer Yu. All rights reserved. See [LICENSE](LICENSE).
+
+**If you're a student on this course:** fork it, clone it, change every line of it,
+keep it. Your pet is yours. This section isn't aimed at you.
+
+**If you're anyone else:** this is not open source. You're welcome to read it, but
+please don't republish it or build your own course out of it without asking first.
+If you're a teacher who'd like to use PetPal with your class, get in touch — the
+answer is likely yes.

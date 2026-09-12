@@ -5,6 +5,9 @@ You do NOT need to read or change this file. It is the "engine" that draws
 your pet on the screen. You write your code in the session files.
 
 Made for the PetPal course.
+
+Copyright (c) 2026 Jennifer Yu. All rights reserved.
+Not open source - see the LICENSE file.
 """
 
 import sys
