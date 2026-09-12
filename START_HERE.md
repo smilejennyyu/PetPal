@@ -55,7 +55,6 @@ press `Ctrl+C`.
 | `session4_functions_and_lists.py` | Session 4 — functions, lists, your own project |
 | `my_pet.py` | Your own playground. Nothing here is homework. |
 | `petpal.py` | The engine. **Don't edit this one** — it's the magic behind the curtain. |
-| `solutions_session*.py` | For the teacher (and for after you've had a real go). |
 | `check_setup.py` | Run this if you're not sure your computer is ready. |
 | `SETUP.md` | Full install instructions for Mac, Linux and Windows. |
 | `SESSION5.md` | Session 5: packages, environments and git. Later. |
