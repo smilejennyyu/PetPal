@@ -8,9 +8,13 @@ with Python.
 > **Full setup instructions, for macOS, Linux and Windows, are in `SETUP.md`.**
 > This page is the short version plus the command reference.
 >
+> **Haven't got the PetPal folder yet?** Start with `README.md` — it walks you
+> through forking and cloning the project, which is class 1.
+>
 > **Do you need Anaconda or a virtual environment? No.** PetPal uses nothing but
-> Python itself. You'll meet conda and git in Session 5, once you've hit the
-> problems they solve.
+> Python itself. You used two git commands to get this folder; you'll learn what
+> git actually *is*, and meet conda, in Session 5 — once you've hit the problems
+> they solve.
 
 ## 1. Install Python (once, about 5 minutes)
 
@@ -48,6 +52,7 @@ press `Ctrl+C`.
 
 | File | What it is |
 |---|---|
+| `README.md` | How to fork and clone the project. You did this in class 1. |
 | `demo_show_off.py` | A finished demo. Run this first to see where you are going. |
 | `session1_meet_your_pet.py` | Session 1 — variables and types |
 | `session2_pet_decisions.py` | Session 2 — if / elif / else |
