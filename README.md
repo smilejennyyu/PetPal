@@ -49,11 +49,6 @@ Go to **[github.com/signup](https://github.com/signup)**.
 - **Write your username and password down somewhere real.** You will need them again
   in Session 5, four weeks from now, and "I forgot" costs the whole class ten minutes.
 
-> **You need to be 13 or older to have a GitHub account,** and you should ask a parent
-> or guardian first. If that's not happening — genuinely no problem. Tell your teacher
-> and you'll get the files another way. You will not miss anything: Session 5 has a
-> version that uses a shared folder and teaches exactly the same commands.
-
 ---
 
 ## Step 2 — Fork this project
