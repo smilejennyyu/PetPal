@@ -2,7 +2,7 @@
 
 **Course:** *PetPal — bring a pet to life with Python*
 **Learners:** 2 students, Grade 8, no programming experience
-**Format:** 4 sessions × 2 hours
+**Format:** 4 sessions × 2 hours, plus an optional Session 5 (see below)
 **Goal:** They leave able to read and write real Python — and, more importantly,
 believing they are the kind of person who can.
 
@@ -23,10 +23,18 @@ types, the highlighted line really is the interpreter's position.
 
 ## Before session 1 — a 15-minute setup checklist
 
-- [ ] Install **Thonny** (thonny.org) on both laptops. It bundles Python, so this
-      is the only install. VS Code + python.org also works if they prefer.
+- [ ] Send the students `SETUP.md` — it walks them through the install for macOS,
+      Linux and Windows, and it explicitly tells them they do **not** need Anaconda
+      or a virtual environment for Sessions 1–4.
+- [ ] On both laptops: **Python** from python.org (on Windows, *tick "Add python.exe
+      to PATH"*), then **VS Code** from code.visualstudio.com, then the **Python**
+      extension by Microsoft. Turn on **File → Auto Save** — it prevents the
+      single most common "but I changed it!" confusion.
+- [ ] In VS Code, **File → Open Folder** on `PetPal` (the folder, not a file), then
+      `Cmd/Ctrl+Shift+P` → *Python: Select Interpreter*.
+- [ ] Run `check_setup.py` on each laptop. Three `[ OK ]` lines means you're ready.
 - [ ] Copy the `PetPal` folder onto each laptop — Desktop is fine.
-- [ ] Open `demo_show_off.py` in Thonny, press **Run**, confirm a puppy appears.
+- [ ] Open `demo_show_off.py`, click the **▷** button top-right, confirm a puppy appears.
 - [ ] If nothing appears, see *Troubleshooting* at the end of this guide.
 - [ ] Print the handouts (`handouts/PetPal_Handouts.pdf`) — one set each, plus the
       cheat sheet, which should live on the table for all four sessions.
@@ -268,7 +276,7 @@ if pet.is_hungry:
 
 Three things to point at, physically, on the screen:
 1. the `:` at the end
-2. the indent (4 spaces — Thonny does it for you)
+2. the indent (4 spaces — VS Code does it for you after the colon)
 3. *the indented lines only run when it's True*
 
 Demonstrate the indent by un-indenting `pet.eat()` and re-running. The pet eats
@@ -419,8 +427,8 @@ while energy > 0:
 ```
 
 The window freezes. Let it sit for five seconds. Then show them how to stop it
-(Thonny's red Stop button; or close the window / `Ctrl+C` in a terminal). Then
-fix it together.
+(click the terminal panel and press `Ctrl+C` — yes, `Ctrl` on a Mac too; or the
+trash-can icon on the terminal). Then fix it together.
 
 The rule to write down: **a `while` loop needs something inside it that changes
 the answer to the question, or it never ends.**
@@ -578,6 +586,167 @@ Then close the course deliberately. Some things worth saying:
 
 ---
 
+# Session 5 (optional) — Beyond the Fence
+### Packages, environments, and git
+
+**Student file:** `SESSION5.md` · **Setup:** Part 2 of `SETUP.md` ·
+**Project:** `pet_park/`
+
+## Read this before you schedule it
+
+**No, they do not need Anaconda or a virtual environment for Sessions 1–4.** PetPal
+is pure standard library — tkinter and nothing else. Keeping it that way is a
+deliberate choice, not laziness: a beginner who is asked to create an environment
+before writing her first line of code learns that programming is mostly ceremony you
+don't understand. Everything in Session 5 exists to solve a problem, and it only
+lands if they have *had* the problem first.
+
+**This is not a two-hour session.** Part A (packages and environments) is about two
+hours. Part B (git) is another two. Run them as two separate meetings if you can —
+git in the back half of a four-hour day will not stick. The two parts are fully
+independent; you can also do Part A now and Part B a month later.
+
+**Two admin things to settle before the day:**
+
+- **GitHub needs an account holder aged 13+**, and the students should have a parent's
+  or guardian's agreement. Don't find this out in the room. `SESSION5.md` gives an
+  equally good Option A — a bare repo in a shared folder or on a USB stick — which
+  teaches identical commands with no accounts at all. Honestly, for two students in
+  one room, Option A is less friction and keeps the lesson on git rather than on a
+  website's UI. Use GitHub if the portfolio value matters to them, and it may well.
+- **Anaconda's licence.** Anaconda's default channels are free for individuals,
+  academic institutions, and non-profit/research organizations, and for companies
+  under 200 people. MSK is a non-profit research institution, so this is almost
+  certainly fine — but if your IT department would rather avoid the question
+  entirely, **Miniforge** (conda-forge's installer) uses the community channel and
+  every command in the session works unchanged.
+
+## Part A — Packages and environments (~2 hrs)
+
+| Time | What |
+|---|---|
+| 0:00 | Run `growth_chart.py` and watch it crash |
+| 0:15 | What a package is; where the code comes from |
+| 0:35 | The two-projects problem (tell it as a story) |
+| 0:50 | `conda create` / `activate` — the box metaphor |
+| 1:05 | **Break** |
+| 1:15 | `conda install matplotlib`, run the chart |
+| 1:35 | Reading `growth_chart.py` — it's all Session 3 code |
+| 1:50 | Challenges: a second environment, `conda env export` |
+
+**Open by breaking it.** Have them run `growth_chart.py` before installing anything.
+`ModuleNotFoundError: No module named 'matplotlib'` *is* the lesson hook. Ask: "Python
+knew what `random` was in Session 4. Why not this?"
+
+**The story to tell for environments.** Don't define it — describe the trap. "You
+install the newest matplotlib for PetPal. Next year you join a science club whose
+code needs an old one. You install the old one. PetPal breaks. You put the new one
+back. The club's project breaks." Let them sit in it for a moment and suggest fixes.
+Someone will say "you'd need two separate copies" — that's the answer, and she said it.
+
+**The prompt is the teaching aid.** Point at `(base)` becoming `(petpal)` every single
+time. Most conda confusion, forever, comes down to not looking at that word. Make
+"which box am I in?" a reflex. Have them deliberately `conda deactivate` and re-run the
+chart so they see the crash come back — the same error, now with a cause they
+understand.
+
+**When `conda install matplotlib` pulls in a dozen packages**, stop and point at it.
+"You asked for one. Why are there twelve?" Dependencies, and resolving them is most of
+what conda is actually for.
+
+**The payoff that matters.** After the chart appears, open `growth_chart.py` and read
+it together. A loop, an `if`, two lists — all Session 3. Only the last eight lines are
+new. Say it plainly: *the Python you already know is the Python scientists use.* The
+package is just a set of extra verbs.
+
+**`conda env export` is worth the last ten minutes** even if it feels advanced. One
+file that lets another lab rebuild your exact environment and get your exact numbers
+is, in a research institution, the entire ballgame. This is the moment to mention what
+reproducibility means and why people care so much.
+
+### Common mistakes in Part A
+
+| What you'll see | What's wrong | What to say |
+|---|---|---|
+| `conda: command not found` | Terminal opened before install finished, or wrong terminal on Windows | Close it; on Windows use **Anaconda Prompt**, not Command Prompt |
+| Installed into `(base)` | Forgot `conda activate petpal` | "Look at your prompt. Which box are you in?" |
+| Still `ModuleNotFoundError` after installing | VS Code is using a different Python | *Python: Select Interpreter* → pick `petpal`, **and open a fresh terminal** (SETUP.md §5.3) |
+| `python` vs `python3` | Windows vs macOS | It's on the cheat sheet; it catches everyone once |
+| Conda hangs for minutes on "Solving environment" | Normal | Let it run. Good moment for the dependency conversation |
+
+## Part B — Git and the Pet Park (~2 hrs)
+
+| Time | What |
+|---|---|
+| 0:00 | The `park_final_REAL_v3.py` problem |
+| 0:10 | Three ideas: repo, commit, remote |
+| 0:20 | Solo git: `init`, `status`, `add`, `commit`, `log` |
+| 0:40 | Wreck a file, `git restore` it — the time machine |
+| 0:55 | **Break** |
+| 1:05 | Remote, `push`, `clone` |
+| 1:20 | Each claims a trick file; build the show together |
+| 1:45 | The deliberate merge conflict |
+| 2:00 | Push the finished Pet Park |
+
+**Open with their own bad habit.** Ask how they share files now. Write the
+`park_final_REAL_mia_edit.py` list on the board. They'll laugh because they recognise
+it. Everything after that is the fix.
+
+**Teach `git status` as a reflex, not a command.** Run it after literally every step.
+It is safe, it explains the current state, and it usually names the next command. A
+student who runs `git status` when confused is a student who can get herself unstuck.
+
+**The restore demo is the emotional centre of Part B.** Have them delete half of
+`main()` on purpose, run it, confirm it's broken, then `git restore park.py`. The point
+to say out loud: *this is not about being tidy, it's about being allowed to try
+things.* Once nothing can be lost, experimenting stops being scary.
+
+**Why each student owns her own trick file.** The clean-merge experience has to come
+first. When they each edit their own file and `git pull` silently combines the work,
+the magic is obvious and un-scary. Only once that's felt do you introduce a conflict —
+deliberately, in `README.md`, where nothing can actually break. Doing it in that order
+is the difference between "git is clever" and "git is terrifying".
+
+**When the conflict appears, slow down.** Read the markers together, out loud. Say
+clearly: nothing is broken, nothing is lost, git simply refuses to guess. Two people
+changed the same line; a human has to choose. Then fix it in twenty seconds and watch
+the fear evaporate.
+
+**Commit messages are a writing lesson.** "update" vs "Add zoomies trick to Mia's
+file". Ask which one they'd want to read in six months. It's a genuinely useful habit
+and it costs nothing to teach now.
+
+### Common mistakes in Part B
+
+| What you'll see | What's wrong | What to say |
+|---|---|---|
+| `Please tell me who you are` | git config never run | SETUP.md §5.3 — name and email, once per computer |
+| An unfamiliar editor opens on commit | Forgot `-m "message"` | If it's vim: `Esc`, then `:wq`, Enter |
+| `Updates were rejected` on push | Partner pushed first | "Pull, then push." This is the normal rhythm |
+| `You have divergent branches` | `pull.rebase` unset | `git config --global pull.rebase false` (it's in SETUP.md) |
+| Conflict markers committed into the file | Didn't delete `<<<<<<<` / `=======` / `>>>>>>>` | Those three lines always go. Then `add` and `commit` |
+| Edited each other's trick file | The one rule | Restate it: your file is yours. This is why it works |
+| `__pycache__` showing in `git status` | Missing ignore | It's in `.gitignore` already — good moment to explain why |
+
+### If they finish early
+
+- `git branch` and `git switch` — make a wild change on a branch, switch away, switch
+  back. This is where real teams live.
+- Add a third pet to the park and give it to whoever finishes first.
+- Put the growth chart into the repo as a script both of them can improve.
+- On GitHub: open an **Issue** on each other's repo asking for a feature. It's how
+  open-source actually works, and it's funnier than it sounds.
+
+## What Session 5 is really for
+
+Sessions 1–4 teach the language. Session 5 teaches the *practice* — and it's the part
+that usually goes untaught until someone's first job or first research project. Two
+students who can make an environment and use git are, in a very practical sense, ready
+to join a real project. That's a reasonable thing to tell them.
+
+
+---
+
 ## Assessment — what "getting it" looks like
 
 You don't need to test them. Watch for these instead:
@@ -594,6 +763,9 @@ This is the big one. It means she's thinking like a programmer.
 **Session 4** — She writes a function because she's bored of repeating herself,
 not because you asked her to.
 
+**Session 5** — She checks her prompt before wondering why an import failed, and she
+runs `git status` when she's confused instead of asking you what happened.
+
 **Across all four** — She reads the error message before asking you. That's the
 single best predictor that she'll keep going after the course ends.
 
@@ -601,11 +773,13 @@ single best predictor that she'll keep going after the course ends.
 
 ## Troubleshooting
 
-**"No module named tkinter"** — Rare on Mac/Windows; happens on Linux. Run
-`sudo apt install python3-tk`. If they're using Thonny, this can't happen.
+**"No module named tkinter"** — Rare with a python.org install; happens on Linux
+(`sudo apt install python3-tk`) and with Homebrew Python on macOS
+(`brew install python-tk`).
 
 **"No module named petpal"** — The file they're running isn't in the same folder
-as `petpal.py`. In Thonny, `File → Open` from inside the PetPal folder.
+as `petpal.py`. Make sure they used **File → Open Folder** on `PetPal` rather than
+opening a single file.
 
 **Window opens then closes instantly** — `run(main)` is missing, or there's a
 syntax error. The terminal/shell panel will show it.
@@ -615,8 +789,14 @@ about 1150×620.
 
 **A syntax error stops anything from running** — PetPal can explain runtime
 errors, but a *syntax* error (missing bracket, missing colon) stops Python before
-PetPal ever starts. Thonny highlights these in the editor before you run. Teach
-them to look at the shell panel at the bottom: it names the line.
+PetPal ever starts. VS Code underlines these in red *before* they run — teach them
+to hover the squiggle, and to read the terminal panel, which names the line.
+
+**"I changed it and nothing happened"** — Auto Save is off. Turn it on
+(File → Auto Save) rather than teaching them to remember `Cmd/Ctrl+S`.
+
+**VS Code opens a debug configuration picker** — they pressed `F5`. Tell them to use
+the **▷** button or `Ctrl+F5` instead; the course never needs the debugger.
 
 **The pet won't move past stone 6** — Working as intended. The garden has a
 fence. Turn around.
@@ -627,9 +807,13 @@ fence. Turn around.
 
 ```
 PetPal/
-├── START_HERE.md                    setup + the full command list
+├── SETUP.md                         GIVE THIS TO THE STUDENTS FIRST
+│                                      Part 1 = sessions 1-4 (Mac/Linux/Windows)
+│                                      Part 2 = session 5 only (conda + git)
+├── START_HERE.md                    the short version + the full command list
 ├── TEACHER_GUIDE.md                 this file
 ├── CURRICULUM.md                    objectives and skills at a glance
+├── check_setup.py                   students run this to prove they're ready
 ├── petpal.py                        the engine (students don't touch this)
 ├── demo_show_off.py                 run this in minute 10 of session 1
 ├── my_pet.py                        free playground
@@ -638,5 +822,13 @@ PetPal/
 ├── session3_loops.py                for / while
 ├── session4_functions_and_lists.py  def / lists / final project
 ├── solutions_session1..4.py         worked answers to every challenge
+├── SESSION5.md                      session 5: packages, environments, git
+├── growth_chart.py                  the matplotlib payoff (crashes until installed)
+├── pet_park/                        the two-person git project
+│   ├── park.py                        shared - pull before you edit
+│   ├── tricks_a.py / tricks_b.py      one owner each - this is why merges work
+│   ├── README.md                      where the deliberate conflict happens
+│   ├── .gitignore
+│   └── petpal.py                      a copy, so the repo stands alone
 └── handouts/PetPal_Handouts.pdf     printable worksheets + cheat sheet
 ```

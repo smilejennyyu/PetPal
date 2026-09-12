@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+growth_chart.png
+.DS_Store

@@ -5,34 +5,42 @@ with Python.
 
 ---
 
+> **Full setup instructions, for macOS, Linux and Windows, are in `SETUP.md`.**
+> This page is the short version plus the command reference.
+>
+> **Do you need Anaconda or a virtual environment? No.** PetPal uses nothing but
+> Python itself. You'll meet conda and git in Session 5, once you've hit the
+> problems they solve.
+
 ## 1. Install Python (once, about 5 minutes)
 
-**The easiest way, and the one we recommend: Thonny.**
+You need two things, and they're separate programs:
 
-1. Go to **thonny.org**
-2. Download the version for your computer (Mac or Windows)
-3. Install it and open it
+1. **Python** from **python.org/downloads**.
+   On **Windows**, tick *"Add python.exe to PATH"* in the installer — this is the
+   mistake everyone makes. On **Linux**, also run `sudo apt install python3-tk`.
+2. **VS Code** from **code.visualstudio.com**, then install the **Python**
+   extension by Microsoft from the Extensions sidebar.
 
-Thonny *is* a Python editor and it brings Python with it, so there is nothing
-else to install. It was made for beginners: big buttons, no confusing settings.
+Then turn on **File → Auto Save**. It saves you a confusing half-hour later.
 
-<details>
-<summary>Already have VS Code or another editor? That works too.</summary>
-
-You need Python 3.8 or newer from **python.org**. On Windows, tick
-*"Add Python to PATH"* during install. On Linux you may also need
-`sudo apt install python3-tk`.
-</details>
+VS Code is what real programmers use, and it has a terminal and a git panel built
+in — which is exactly what Session 5 needs, so you never change tools.
 
 ---
 
 ## 2. Open the folder
 
-In Thonny: **File → Open…** and pick a file from this folder.
+**File → Open Folder…** and choose the whole `PetPal` folder — the folder, not one
+file. Then `Cmd/Ctrl+Shift+P` → **Python: Select Interpreter** and pick the Python
+you just installed.
 
-Start with `demo_show_off.py`. Press the big green **Run** button (or `F5`).
+Click `demo_show_off.py` in the sidebar, then the **▷ play button in the top right**.
 
 A window should open with a puppy in it. If it does — you are ready. 🎉
+
+If a program won't stop (hello, infinite loop), click the terminal at the bottom and
+press `Ctrl+C`.
 
 ---
 
@@ -48,6 +56,11 @@ A window should open with a puppy in it. If it does — you are ready. 🎉
 | `my_pet.py` | Your own playground. Nothing here is homework. |
 | `petpal.py` | The engine. **Don't edit this one** — it's the magic behind the curtain. |
 | `solutions_session*.py` | For the teacher (and for after you've had a real go). |
+| `check_setup.py` | Run this if you're not sure your computer is ready. |
+| `SETUP.md` | Full install instructions for Mac, Linux and Windows. |
+| `SESSION5.md` | Session 5: packages, environments and git. Later. |
+| `growth_chart.py` | Session 5 — it crashes on purpose until you install matplotlib. |
+| `pet_park/` | Session 5 — the two-person project you'll share with git. |
 
 ---
 

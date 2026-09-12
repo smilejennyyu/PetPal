@@ -1,6 +1,6 @@
 # PetPal — Curriculum at a glance
 
-**4 sessions × 2 hours · Grade 8 · no prior programming experience · Python 3**
+**4 sessions × 2 hours, + an optional Session 5 · Grade 8 · no prior experience · Python 3**
 
 Every concept is taught through one continuous artefact: an electronic pet the
 student builds and owns. Concepts are introduced only when the pet needs them.
@@ -22,7 +22,17 @@ print()            and / or / not     nested loops       indexing, len
 f-strings          ask()                                 append
 comments           int() / str()                         random
                                                          dictionaries
+
+                   SESSION 5 (optional) - how programmers actually work
+                   ───────────────────────────────────────────────────
+                   packages · conda environments · reproducibility
+                   git: commit, history, remote, pull/push, conflicts
 ```
+
+**Sessions 1–4 require nothing but a Python install** — PetPal uses only the
+standard library, no pip, no conda, no virtual environment. That is deliberate:
+tooling is introduced in Session 5, *after* the students have hit the problem it
+solves.
 
 Each session ends with a mini-project that *requires* everything from the
 sessions before it. Nothing is taught and then abandoned.
@@ -105,6 +115,44 @@ function, one list, and one `ask()`.
 
 ---
 
+## Session 5 (optional) — Beyond the Fence
+
+**Big idea:** Other people wrote code you can use, and other people will work on
+code with you. Both need tools.
+
+Run as **two ~2-hour halves**; they're independent.
+
+### Part A — packages and environments
+
+| Skill | Evidence it landed |
+|---|---|
+| Explain what a package is and where it comes from | Can name the difference between `random` and `matplotlib` |
+| Install one with `conda install` | Reads the dependency list and asks why there are twelve |
+| Explain why environments exist | Can retell the two-projects-two-versions problem |
+| Create, activate, deactivate, list environments | Checks the `(petpal)` prompt before debugging an import |
+| Use matplotlib to plot data she generated | Recognises the plotting script as Session 3 code plus 8 lines |
+| Export an environment | Can say why a scientist would need `environment.yml` |
+
+**Mini-project:** the pet's growth chart — the Session 3 growth rule, recorded into
+lists and plotted as a curve.
+
+### Part B — git and collaboration
+
+| Skill | Evidence it landed |
+|---|---|
+| Explain repo / commit / remote | Describes a commit as a snapshot, not a file |
+| `init`, `status`, `add`, `commit`, `log` | Runs `git status` when confused, unprompted |
+| Recover a file with `git restore` | Willing to try a risky change because undo exists |
+| `clone`, `push`, `pull` | Completes an edit→commit→pull→push cycle unaided |
+| Work in parallel on one project | Understands why file ownership prevents conflicts |
+| Resolve a merge conflict | Deletes the markers and keeps both versions, calmly |
+| Write a useful commit message | Can say why "update" is a bad one |
+
+**Mini-project:** Pet Park — a two-pet show where each student owns her own trick
+module, plus one deliberate merge conflict in the shared README.
+
+---
+
 ## Habits taught alongside the syntax
 
 These matter as much as the language, and are assessed by observation:
@@ -115,6 +163,8 @@ These matter as much as the language, and are assessed by observation:
 4. **Small steps, run often.** Never write 20 lines before testing.
 5. **Comment your intent.** Why, not what.
 6. **Make it yours.** Every program should look like the person who wrote it.
+7. **(Session 5) Check which environment you're in** before you debug an import.
+8. **(Session 5) Commit early, commit often** — and say what you changed.
 
 ---
 
